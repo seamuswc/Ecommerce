@@ -1,0 +1,4 @@
+// Override semantic ui loader color
+.ui.dimmer .ui.loader:after {
+    border-color: map-get($colors, 'green-1') transparent transparent;
+}

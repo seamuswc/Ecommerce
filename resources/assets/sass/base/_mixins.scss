@@ -1,0 +1,181 @@
+// Absolute positioning
+@mixin absolute-center($position) {
+    
+    position: absolute;
+
+    @if $position == 'vertical' {
+
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @else if $position =='horizontal' {
+
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @else if $position == 'both' {
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+// Media Query
+@mixin mq($size, $type:min, $pixels: $breakpoint-xs) {
+    
+    @if $size == 'xs' {
+
+        @media screen and ($type + -width:$breakpoint-xs){
+            
+            @content;
+        }
+    }
+
+    @else if $size == 'sm' {
+
+        @media screen and ($type + -width:$breakpoint-sm){
+            
+            @content;
+        }
+    }
+
+    @else if $size == 'md' {
+        
+        @media screen and ($type + -width:$breakpoint-md){
+            
+            @content;
+        }
+    }
+
+    @else if $size == 'lg' {
+        
+        @media screen and ($type + -width:$breakpoint-lg){
+            
+            @content;
+        }
+    }
+
+    @else if $size == 'custom' {
+        
+        @media screen and ($type + -width:$pixels + px){
+            
+            @content;
+        }
+    }
+
+    @else {
+
+        @content;
+    }
+}
+
+// Placeholders
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+// Link Styling
+@mixin link($color, $hover, $visited, $focus, $active) {
+
+    color: $color;
+
+    
+
+    &:visited {
+        color: $visited;
+    }
+    &:focus {
+        color: $focus;
+    }
+
+    &:active {
+        color: $active;
+    }
+
+    &:hover {
+        color: $hover;
+    }
+}
+
+// Generates Colors and Backgrounds based on $colors variable
+@mixin colors($colors) {
+
+    .color {
+
+        @each $color,$value in $colors {
+
+            &--#{$color} {
+                color: #{$value} !important;
+            }
+        }
+    }
+
+    .bg {
+
+        @each $color,$value in $colors {
+
+            &--#{$color} {
+                background-color: #{$value} !important;
+            }
+        }
+    }
+}
+
+// Responsive Width
+@mixin resp-width($width) {
+    max-width: $width + px;
+    width: 100%;
+}
+
+/* Paddings and Margins */
+$spacer: 1rem;
+$spacer-x: $spacer;
+$spacer-y: $spacer;
+$spacers: (
+  0: (
+    x:   0,
+    y:   0
+  ),
+  h: (
+    x:   ($spacer-x * 0.5),
+    y:   ($spacer-y * 0.5)
+  ),
+  1: (
+    x:   $spacer-x,
+    y:   $spacer-y
+  ),
+  2: (
+    x:   ($spacer-x * 1.5),
+    y:   ($spacer-y * 1.5)
+  ),
+  3: (
+    x:   ($spacer-x * 3),
+    y:   ($spacer-y * 3)
+  ),
+  4: (
+    x:   ($spacer-x * 4),
+    y:   ($spacer-y * 4)
+  )
+);
+
+@mixin spacing() {
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $lengths in $spacers {
+        $length-x:   map-get($lengths, x);
+        $length-y:   map-get($lengths, y);
+
+        .#{$abbrev}-#{$size} { #{$prop}: $length-y $length-x !important; } // a = All sides
+        .#{$abbrev}t-#{$size} { #{$prop}-top:    $length-y !important; }
+        .#{$abbrev}r-#{$size} { #{$prop}-right:  $length-x !important; }
+        .#{$abbrev}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+        .#{$abbrev}l-#{$size} { #{$prop}-left:   $length-x !important; }
+      }
+    }
+}

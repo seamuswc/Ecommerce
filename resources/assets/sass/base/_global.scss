@@ -1,0 +1,109 @@
+body {
+    color: map-get($colors, 'black' ) !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+label {
+    font-weight: 500 !important;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+// SVG Fallback
+.svg-fallback {
+    display: block;
+    position: fixed;
+    left: -100%;
+    height: 0; width: 0;
+    overflow: hidden;
+}
+
+//display flex
+.flex {
+    display: flex;
+}
+
+.align-right {
+    justify-content: flex-end;
+}
+
+// Height
+.ht-100 {
+    height: 100%;
+}
+
+// Word break
+.break-word {
+    word-break: break-all !important;
+}
+
+// clearing floats
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.pull-left {
+    float:  left !important;
+}
+
+.pull-right {
+    float: right;
+}
+
+// Text
+.text-center {
+    text-align: center !important;
+
+    &--mobile {
+        text-align: center !important;
+    }
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+
+.text-medium {
+    font-weight: 500 !important;
+}
+.text-bold {
+    font-weight: 700 !important;
+}
+
+.text-muted {
+    color: map-get($colors, grey-4 ) !important;
+}
+
+@include mq(sm) {
+
+    .text-center {
+
+        &--mobile {
+            text-align: left !important;
+        }
+    }
+}

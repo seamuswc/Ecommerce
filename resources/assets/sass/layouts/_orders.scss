@@ -1,0 +1,22 @@
+.order-summary {
+    border: solid 1px map-get($colors, grey-1);
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+
+    tr td {
+        padding: 8px 15px;
+    }
+
+    tr td:first-child {
+        width: 80%;
+    }
+
+    tr:not(:last-child) td {
+        border-bottom: solid 1px map-get($colors, grey-1);
+    }
+}
+
+.order-summary__total {
+    background-color: map-get($colors, grey-1);
+}

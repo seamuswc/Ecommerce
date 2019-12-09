@@ -1,0 +1,10 @@
+.shipping__orders {
+    padding-right: 0 !important;
+}
+
+@include mq(md) {
+
+    .shipping__orders {
+        margin-right: 30px !important;
+    }
+}

@@ -1,0 +1,22 @@
+.site-wrapper {
+    position: relative;
+}
+
+.main-content {
+    min-height: 100%;
+    padding-bottom: 65px;
+}
+
+.content-wrapper {
+    background: #ffffff;
+    /* box-shadow: 6px 6px 21px rgba(0, 0, 0, 0.15); */
+    min-height: 85vh;
+    padding: 15px !important;
+}
+
+@include mq(sm) {
+
+    .content-wrapper {
+        padding: 40px !important;
+    }
+}

@@ -1,0 +1,14 @@
+.ui.styled.accordion {
+    border: solid 1px map-get($colors, grey-1 );
+    box-shadow: none;
+
+    .title {
+        border-top: 1px solid map-get($colors, grey-1 );
+        font-weight: 500;
+    }
+
+    .active.title  {
+        color: map-get($colors, black);
+        
+    }
+}
