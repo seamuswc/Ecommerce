@@ -13,9 +13,12 @@
 .product__name {
     font-size: 36px;
     font-weight: 400 !important;
+    text-align: center;
 }
 
 .product__qty {
+    text-align: center;
+
     label {
         margin-right: 5px;
     }
@@ -45,6 +48,8 @@
 
 /* Product Price */
 .product__price {
+    text-align: center;
+
     font-size: 24px;
 }
 

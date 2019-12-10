@@ -36,9 +36,9 @@
                             </div>
                         </div>
                         <div class="product__extra mt-h">
-                            <div class="ui pointing secondary menu">
+                            <!-- <div class="ui pointing secondary menu">
                                 <a class="item active" data-tab="description">{{ __('translations.labels.description') }}</a>
-                            </div>
+                            </div> -->
                             <div class="ui bottom attached tab segment active color--grey-5 text-center--mobile" data-tab="description">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti itaque asperiores, unde fugit aliquam aut quae voluptatibus modi rerum?</p>
                             </div>
@@ -64,7 +64,7 @@
                                                         <div class="menu">
                                                             @if($supported_countries->count())
                                                                 @foreach($supported_countries as $supported_country)
-                                                                    <div class="item" data-value="{{ $supported_country->import_tariff }}|{{ $supported_country->sales_tax }}|{{ $supported_country->shipping }}|{{ $supported_country->name }}">{{  __('translations.countries.'.string_to_key($supported_country->name))  }}</div>
+                                                                    <div class="item" data-value="{{ $supported_country->import_tariff }}|{{ $supported_country->sales_tax }}|{{ $supported_country->shipping }}|{{ $supported_country->name }}">{{ $supported_country->name }}</div>
                                                                 @endforeach
                                                             @else
                                                                 <div class="item" data-value="0|0|0|United States">{{ __('translations.countries.'.string_to_key('United States')) }}</div>
