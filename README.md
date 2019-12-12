@@ -1,5 +1,5 @@
 # Eccomerce
-Simple to manage E-commerce store that accepts BTC
+Simple to manage Single product E-commerce store that accepts BTC
 
 ### Local Setup
 - clone the project using `git clone https://github.com/ConnollySekai/KowloonShirts-v.2.git`
@@ -10,14 +10,7 @@ Simple to manage E-commerce store that accepts BTC
 - generate app key `php artisan key:generate`
 - run migration and seed `php artisan migrate`
 - create a symlink to storage `php artisan storage:link`
-- run the queue worker(must have a [Redis](https://redis.io/) server running) `php artisan queue:work`
-- run the app `php artisan serve`
-
-### Deploying on Forge
-- setup your forge server
-- create and start a queue worker
-- add these commands to your deployment script `php artisan storage:link` and `php artisan queue:restart`
-- deploy your app
+- run the app `php artisan serve` for local testing
 
 ### Style and Scripts
 Eccomerce uses [semantic ui](https://semantic-ui.com) library and some custom CSS to create a simplistic look.
@@ -40,8 +33,6 @@ Front-end assets are compiled by Laravel mix.
 
 
 ### Gemini and Nexmo
-Eccomerce uses Gemini Api to handle BTC transactions and Nexmo for sending SMS notifications. You must setup your api keys on the settings tab on the admin section.
+Eccomerce uses Gemini Api to handle BTC transactions. You must setup your api keys on the settings tab on the admin section.
 Gemini key type needs to be 'Fund Manager'. This allows for the creation of wallet address, but does not allow assets to be sold or sent.
 
-### Other
-**app/controllers/settingscontroller** has an array at the top that when set can notify your cell when the exchange keys have been changed.
