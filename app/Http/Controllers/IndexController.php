@@ -23,9 +23,7 @@ class IndexController extends Controller {
 
       return redirect('/bluelogin');
     }
-    // get exchange rates
-    $exchange_rates = cryptocurrency::getRates();
-
+ 
     // get crypto rate
     $crypto_rate = cryptocurrency::getRate();
 

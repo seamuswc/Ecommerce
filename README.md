@@ -32,7 +32,7 @@ Front-end assets are compiled by Laravel mix.
 - run command `npm run prod` to compile for production
 
 
-### Gemini and Nexmo
+### Gemini
 Eccomerce uses Gemini Api to handle BTC transactions. You must setup your api keys on the settings tab on the admin section.
 Gemini key type needs to be 'Fund Manager'. This allows for the creation of wallet address, but does not allow assets to be sold or sent.
 

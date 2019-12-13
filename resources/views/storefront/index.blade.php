@@ -1,5 +1,7 @@
 @extends('layouts.storefront')
 
+@section('page-title', 'Home')
+
 @section('page-style')
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
@@ -58,16 +60,16 @@
                                                 <div class="eight wide field {{ ($errors->first('country')) ? 'error' : '' }}">
                                                     <label for="country">{{ __('translations.labels.country') }}</label>
                                                     <div id="countryDropdown" class="ui fluid selection dropdown">
-                                                        <input id="country" type="hidden" name="country" value="{{ old('country','0|0|0|Country') }}">
+                                                        <input id="country" type="hidden" name="country" value="{{ old('country','0|Country') }}">
                                                         <i class="dropdown icon"></i>
                                                         <div class="default text">{{ __('translations.labels.country') }}</div>
                                                         <div class="menu">
                                                             @if($supported_countries->count())
                                                                 @foreach($supported_countries as $supported_country)
-                                                                    <div class="item" data-value="{{ $supported_country->import_tariff }}|{{ $supported_country->sales_tax }}|{{ $supported_country->shipping }}|{{ $supported_country->name }}">{{ $supported_country->name }}</div>
+                                                                    <div class="item" data-value="{{ $supported_country->shipping }}|{{ $supported_country->name }}">{{ $supported_country->name }}</div>
                                                                 @endforeach
                                                             @else
-                                                                <div class="item" data-value="0|0|0|United States">{{ __('translations.countries.'.string_to_key('United States')) }}</div>
+                                                                <div class="item" data-value="0|United States">United States</div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -145,7 +147,7 @@
             $('.ui.form').form({
                 fields: {
                     name        : 'empty',
-                    country     : 'not[0|0|0|country]',
+                    country     : 'not[0|country]',
                     state       : 'empty',
                     city        : 'empty',
                     address1    : 'empty',
@@ -160,7 +162,7 @@
                     var country = ($('#country').val()).split('|');
 
                     //set calling code
-                    $('#callingCodeDropdown').dropdown('set selected',get_calling_code(country[3]));
+                    $('#callingCodeDropdown').dropdown('set selected',get_calling_code(country[1]));
                     //trigger change event
                     $('#country').change();
 

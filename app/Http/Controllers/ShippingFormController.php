@@ -17,7 +17,7 @@ class ShippingFormController extends Controller {
     parent::__construct();
 
     //get gemini settings
-    $this->gemini = settings::getSetting('gemini');
+    $this->gemini = settings::getSetting('basic_info');
   }
 
   /*
@@ -39,8 +39,8 @@ class ShippingFormController extends Controller {
     //3
     $product = session('product');
     $result_explode = explode('|', $request->input('country'));
-    $shipping_rate = (float) $result_explode[2];
-    $country = $result_explode[3];
+    $shipping_rate = (float) $result_explode[0];
+    $country = $result_explode[1];
 
     $result_explode = explode('|', $request->input('callingCode'));
     $calling_code = $result_explode[0];

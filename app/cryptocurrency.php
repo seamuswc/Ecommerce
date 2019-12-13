@@ -94,36 +94,4 @@ class cryptocurrency {
   public static function removeTrailingZeros($number) {
     return preg_replace('/(\.{1}0+)$|(?<=\d)0+$/', '', (string) $number);
   }
-
-  /**
-   * Calculate crypto values
-   *
-   * @param string $left_operand,
-   * @param string $right_operand
-   * @param string $type add, sub, mul div
-   * @return
-   */
-  public static function calculate($left_operand, $right_operand, $type = 'add') {
-    switch ($type) {
-      case 'add':
-
-        break;
-
-      case 'sub':
-
-        break;
-
-      case 'mul':
-
-        break;
-
-      case 'div':
-
-        break;
-
-      default:
-    }
-
-    return self::formatNumber($result);
-  }
 }

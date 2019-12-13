@@ -1,5 +1,7 @@
 @extends('layouts.storefront')
 
+@section('page-title', 'Owed')
+
 @section('content')
 
     @if ($notification = session('notification'))

@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('page-title', 'Sent')
+
 @section('content')
     <div class="ui card fluid">
         <div class="content">
@@ -12,7 +14,6 @@
                 <thead>
                     <th>{{ __('translations.labels.order_no') }}</th>
                     <th>{{ __('translations.headings.qty') }}</th>
-                    <th>{{ __('translations.headings.carrier') }}</th>
                     <th>{{ __('translations.labels.tracking_number') }}</th>
                     <th>{{ __('translations.labels.name') }}</th>
                     <th>{{ __('translations.labels.country') }}</th>
@@ -30,7 +31,6 @@
                             <tr>
                                 <td class="break-word">{{ $shipment->order_number }}</td>
                                 <td class="break-word">{{ $shipment->qty }}</td>
-                                <td class="break-word">{{ $shipment->carrier['name'] }}</td>
                                 <td class="break-word">{{ $shipment->tracking_number }}</td>
                                 <td class="break-word">{{ $shipment->name }}</td>
                                 <td class="break-word">{{ $shipment->country }}</td>

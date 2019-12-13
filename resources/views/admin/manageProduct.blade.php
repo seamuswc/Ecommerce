@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('page-title', 'Manage')
+
 @section('content')
     <div class="ui card fluid">
         <div class="content">

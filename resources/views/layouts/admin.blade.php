@@ -8,8 +8,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Admin</title>
+    <title>{{ (isset($settings['site_name'])) ?$settings['site_name'] : 'ECCOMERCE' }} - @yield('page-title')</title>
    
     <link rel="stylesheet" href="{{ asset('css/semantic.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -19,7 +18,7 @@
         <header>
             <div class="ui menu">
                 <div class="header item">
-                    <a href="{{ URL::to('/') }}">ECCOMERCE</a>
+                    <a href="{{ URL::to('/') }}" class="text-uppercase">{{ (isset($settings['site_name'])) ?$settings['site_name'] : 'ECCOMERCE' }}</a>
                 </div>
                 <div class="right menu">
                     <a class="item"><strong>{{ auth()->user()->username }}</strong></a>
@@ -43,7 +42,7 @@
                         <a href="{{ action('AdminController@shipped') }}" class="{{ Request::segment(1)=='shipped' ? 'active teal':'' }} item">
                             <span> <i class="paper plane icon"></i>{{ __('translations.headings.sent_shipment') }}</span>
                         </a>
-                        <a href="{{ action('SettingsController@index') }}" class="{{ Request::segment(1)=='settings' ? 'active':'' }} item">
+                        <a href="{{ action('SettingsController@index') }}" class="{{ Request::segment(1)=='settings' ? 'active teal':'' }} item">
                             <span> <i class="cogs icon"></i>{{ __('translations.headings.settings') }}</span>
                         </a>
                     </div>

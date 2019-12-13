@@ -9,13 +9,9 @@ class CountryController extends Controller {
 
   public function store(Request $request) {
 
-    session()->flash("settingsTab", "country");
-
-    $validatedData = $request->validate([
+    $validate_data = $request->validate([
       'country' => 'required',
-      'callingCode' => 'required',
-      'import_tariff' => 'required',
-      'sales_tax' => 'required',
+      'calling_code' => 'required',
       'shipping' => 'required',
     ]);
 
@@ -24,9 +20,7 @@ class CountryController extends Controller {
     country::create([
       'name' => $country[1],
       'iso' => $country[0],
-      'calling_code' => '+' . $request->input('callingCode'),
-      'import_tariff' => $request->input('import_tariff'),
-      'sales_tax' => $request->input('sales_tax'),
+      'calling_code' => '+' . $request->input('calling_code'),
       'shipping' => $request->input('shipping'),
     ]);
 
@@ -40,16 +34,14 @@ class CountryController extends Controller {
 
   public function delete(Request $request, $id) {
     
-    session()->flash("settingsTab", "country");
-
     $country = country::findOrFail($id);
 
-    $countryName = $country->name;
+    $country_name = $country->name;
 
     $country->delete();
 
     session()->flash("notification", [
-      'message' => $countryName . " " . __('translations.notifications.deleted'),
+      'message' => $country_name . " " . __('translations.notifications.deleted'),
       'type' => 'error',
     ]);
 

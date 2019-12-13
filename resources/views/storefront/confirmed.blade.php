@@ -1,11 +1,13 @@
 @extends('layouts.storefront')
 
+@section('page-title', 'Confirmed')
+
 @section('content')
     <div class="ui container grid content-wrapper">
         <div class="sixteen wide mobile eight wide tablet eight wide computer column centered middle aligned">
             <div class="text-center payment-success">
                 <h3 class="payment-success__heading">{{ __('translations.headings.payment_success') }}</h3>
-                <p> {{ __('translations.texts.shipping_time') }} <strong> {{ $confirmed['city'] }}, {{  __('translations.countries.'.string_to_key($confirmed['country']))  }}</strong></p>
+                <p> {{ __('translations.texts.shipping_time') }} <strong> {{ $confirmed['city'] }}, {{  $confirmed['country']  }}</strong></p>
                 <p>{{ __('translations.texts.order_number') }}</p>
                 <div class="payment-success__order-no">
                     {{ $confirmed['order_number'] }}

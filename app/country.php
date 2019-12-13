@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class country extends Model {
 
-  protected $fillable = ['name', 'iso', 'calling_code', 'import_tariff', 'sales_tax', 'shipping'];
+  protected $fillable = ['name', 'iso', 'calling_code','shipping'];
 
   // get the available country list from config minus the supported country
   public function scopeGetList($query) {

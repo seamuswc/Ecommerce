@@ -135,10 +135,6 @@ return [
             'not_regex' => 'Country is Required.',
             'required_calling_code' => 'Country calling code is required.'
         ],
-        'phone' => [ // custom validation message for phone review
-            'not_found' => 'Phone number not found.',
-            'not_allowed' => 'Only one review per order allowed.'
-        ]
     ],
 
     /*
@@ -153,8 +149,7 @@ return [
     */
 
     'attributes' => [
-        'comment' => 'comment',
-        'phone' => 'phone'
+        'comment' => 'comment'
     ],
 
 ];

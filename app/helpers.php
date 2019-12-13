@@ -43,20 +43,6 @@ if (!function_exists('format_calling_code')) {
 }
 
 /**
- * Converts string value to key value ex: UNited States -> united_states
- *
- * @param string $value
- * @return string
- */
-if (!function_exists('string_to_key')) {
-
-  function string_to_key($value) {
-    //trim the spaces, replace spaces with underscore then convert to lowercase
-    return strtolower(str_replace(' ', '_', trim($value)));
-  }
-}
-
-/**
  * Generates a unique id
  *
  * @param $length

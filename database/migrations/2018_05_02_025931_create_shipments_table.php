@@ -27,7 +27,6 @@ class CreateShipmentsTable extends Migration
             $table->integer('sent');
             $table->integer('qty');
             $table->string('tracking_number')->nullable();
-            $table->integer('carrier_id')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

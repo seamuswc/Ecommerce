@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\carrier;
 use App\product;
 use App\shipments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller {
 
   public function __construct() {
+    parent::__construct();
     $this->middleware('auth');
   }
 
@@ -19,8 +20,7 @@ class AdminController extends Controller {
 
   public function pending() {
     $pending = shipments::latest()->where('sent', 0)->get();
-    $carriers = carrier::all();
-    return view('admin.pendingShipments', compact('pending', 'carriers'));
+    return view('admin.pendingShipments', compact('pending'));
   }
 
   public function shipped() {
@@ -37,12 +37,19 @@ class AdminController extends Controller {
 
     ini_set('max_execution_time', 300);
 
-    $validatedData = $request->validate([
+    $validate_data = $request->validate([
       'name' => 'required|min:2',
       'price' => 'required|integer',
       'stock' => 'required',
       'photo' => 'required|file|image|max:5000|mimes:jpeg,png',
     ]);
+
+    $product = product::first();
+
+    if ($product !== null) {
+
+      self::productDelete($product->id);
+    }
 
     $new = new product;
     $name = $new->createProduct($request);
@@ -59,10 +66,14 @@ class AdminController extends Controller {
 
   public function productDelete($id) {
     //$id = request()->input('delete');
-    $new = new product;
-    $new->destroy($id);
-    return back();
 
+    $product = product::findOrFail($id);
+
+    Storage::disk('public')->delete($product->photo);
+
+    $product->delete();
+
+    return back();
   }
 
   public function sent($id) {

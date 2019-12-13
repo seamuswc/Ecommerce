@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('page-title', 'Pending')
+
 @section('content')
     <div class="ui card fluid">
         <div class="content">
@@ -40,7 +42,6 @@
                                     <div class="group content flex align-right">
                                         <form method="GET" action="{{ action('AdminController@sent',['id' => $shipment->id]) }}" id="sentForm-{{ $shipment->id }}" class="ui right floated">
                                             <input type="hidden" class="trackingNumber" name="trackingNumber" value="0">
-                                            <input type="hidden" class="carrier" name="carrierId" value="0">
                                             <button class="mini ui teal button sent-button" type="button" data-id="{{ $shipment->id }}">{{ __('translations.buttons.sent') }}</button>
                                         </form>
                                         <form method="GET" action="{{ action('AdminController@delete') }}" class="ui right floated" onSubmit="return confirm('{{ __('translations.texts.delete_confirm') }} {{ $shipment->name }}');">
@@ -86,8 +87,7 @@
             modalForm
                 .form({
                     fields: {
-                        trackingNumberInput: 'empty',
-                        carrierDropdown: 'empty'
+                        trackingNumberInput: 'empty'
                     }
             });
 
@@ -95,15 +95,11 @@
             $('#trackingNumberButton').click(function(){
 
                 var recordForm = $('#'+$('#shipmentFormId').val()),
-                    trackingNumber = recordForm.find('.trackingNumber'),
-                    carrier = recordForm.find('.carrier');
+                    trackingNumber = recordForm.find('.trackingNumber');
 
-                if( modalForm.form('is valid', 'trackingNumberInput') && modalForm.form('is valid', 'carrierDropdown')) {
+                if( modalForm.form('is valid', 'trackingNumberInput')) {
 
                     trackingNumber.val($('#trackingNumberInput').val());
-
-                    carrier.val($('#carrierDropdown').val());
-
 
                     recordForm.submit();
                 } else {

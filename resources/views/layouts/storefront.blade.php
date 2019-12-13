@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-
-    
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Eccomerce</title>
+
+    <title>{{ (isset($settings['site_name'])) ? $settings['site_name'] : 'ECCOMERCE' }} - @yield('page-title') </title>
     
     <!-- SEO -->
     <meta name="description" content="Description">
@@ -30,9 +27,7 @@
             <header class="site-header ui container grid">
                 <div class="row">
                     <div class="eight wide column">
-                        <a href="{{ URL::to('/') }}">
-                           <img src="{{ asset('images/logo.svg') }}" class="logo">
-                        </a>
+                        <h1 class="site-name"><a href="{{ URL::to('/') }}">{{ (isset($settings['site_name'])) ? $settings['site_name'] : 'ECCOMERCE' }}</a></h1>
                     </div>
                     <div class="middle aligned eight wide column text-right">
                         @if(Route::getCurrentRoute()->uri() == '/')

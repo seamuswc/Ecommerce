@@ -18,10 +18,7 @@ class CreateCountriesTable extends Migration
             $table->string('name');
             $table->string('iso');
             $table->string('calling_code');
-            $table->integer('import_tariff');
-            $table->integer('sales_tax');
             $table->integer('shipping');
-
             $table->timestamps();
         });
     }

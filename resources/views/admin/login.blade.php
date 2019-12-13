@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Eccomerce</title>
+    <title>{{ (isset($settings['site_name'])) ?$settings['site_name'] : 'Eccomerce' }} - Login</title>
     <meta name="description">
 
     <!-- Scripts -->
@@ -22,7 +22,7 @@
             <div class="sixteen wide mobile eight wide tablet seven wide computer column centered">
                 <div class="ui card fluid">
                     <div class="content">
-                        <div class="header">Eccomerce {{ __('translations.buttons.login') }}</div>
+                        <div class="header">{{ (isset($settings['site_name'])) ?$settings['site_name'] : 'Eccomerce' }} {{ __('translations.buttons.login') }}</div>
                     </div>
                     <div class="content">
                         <form method="POST" action="{{ action('Auth\loginController@login') }}" class="ui form">

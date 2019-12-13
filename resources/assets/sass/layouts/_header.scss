@@ -8,3 +8,11 @@
         width: 100%;
     }
 }
+
+.site-name a {
+    color: map-get($colors, 'black');
+    cursor: pointer;
+    font-size: 32px;
+    font-weight: bold !important;
+    text-transform: uppercase;
+}
