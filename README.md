@@ -2,7 +2,7 @@
 Simple to manage Single product E-commerce store that accepts BTC
 
 ### Local Setup
-- clone the project using `git clone https://github.com/ConnollySekai/KowloonShirts-v.2.git`
+- clone the project using `git clone https://github.com/seamuswc/Ecommerce.git`
 - go to project directory cd Eccomerce
 - install composer dependencies `composer install`
 - install node dependecies `npm install`
